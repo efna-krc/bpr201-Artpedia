@@ -1,0 +1,1631 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+}
+/* Tüm sayfanın ana yapılarını belirliyor, yazı tipi, aralığı, arka plan rengi...*/
+body {
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.6;
+    background-color: #FDFBF5;
+    color: #333333;
+}
+
+.container {
+    width: 90%;
+    max-width: 1280px;
+    margin: auto;
+    overflow: hidden;
+    padding: 0 25px;
+}
+/*Tüm bağlantılarımızın varsayılan rengi ve hover efekti burada*/
+a {
+    text-decoration: none;
+    color: #3C5A4B;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #8BC34A;
+}
+
+.buton-birincil {
+    background-color: #8BC34A;
+    color: #fff;
+    padding: 12px 18px;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.buton-birincil:hover {
+    background-color: #7BB439;
+    transform: translateY(-2px); /*Hafif yukarı kayma efekti*/
+}
+
+.buton-birincil-large {
+    background-color: #8BC34A;
+    color: #fff;
+    padding: 15px 30px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.buton-birincil-large:hover {
+    background-color: #7BB439;
+    transform: translateY(-3px);
+}
+
+.buton-outline {
+    background-color: transparent;
+    color: #3C5A4B;
+    border: 2px solid #3C5A4B;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: 600;
+    margin-right: 15px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.buton-outline:hover {
+    background-color: #3C5A4B;
+    color: #fff;
+}
+
+.buton-discover { /* keşfet butonunun stili*/
+    background-color: #3C5A4B;
+    color: #fff;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 1rem;
+    display: inline-block;
+    margin-top: 30px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.buton-discover:hover {
+    background-color: #2E4032;
+    transform: scale(1.05); /*büyüme efekti*/
+}
+
+/* Sitenin üst kısmının stilleri*/
+/* Menü, arama kutusu ve giriş/kayıt butonlarının düzenini ve renklerini burada ayarladım*/
+header {
+    background-color: #2E4032;
+    padding: 1.2rem 0;
+    border-bottom: 3px solid #8BC34A;
+    position: relative;
+    z-index: 100;
+}
+
+header .container {
+    display: flex; /* ögeleri yan yana hizalamk için*/
+    justify-content: space-between;
+    align-items: center;
+}
+/* logo ile alakalı düzenlemeler*/
+header .logo a {
+    font-family: 'Montserrat', sans-serif;
+    color: #a8d583;
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+}
+
+.main-nav li {
+    margin-left: 30px;
+}
+/* menü yazıları*/
+.main-nav a {
+    color: #FDFBF5;
+    font-size: 1.05rem;
+    font-weight: 400;
+    padding: 5px 0;
+    position: relative;
+}
+
+.main-nav a::after { /*Hover efektinde altta çıkan çizgi için*/
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: #A3CC81;
+    left: 0;
+    bottom: -5px;
+    transition: width 0.3s ease-in-out;
+}
+
+.main-nav a:hover::after {
+    width: 100%; /* Hover'da çizginin uzamasını sağlıyor */
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+}
+/* arama butonu düzenleme kodları*/
+.search-box {
+    position: relative;
+    margin-right: 20px;
+}
+
+.search-box input[type="text"] {
+    padding: 8px 15px;
+    border: 1px solid #5A7E68;
+    border-radius: 20px;
+    background-color: #F5F0E1;
+    color: #333333;
+    width: 180px;
+    font-size: 1rem;
+    transition: width 0.3s ease, border-color 0.3s ease;
+}
+
+.search-box input[type="text"]::placeholder {
+    color: #666;
+}
+
+.search-box input[type="text"]:focus {
+    width: 240px;
+    outline: none;
+    border-color: #8BC34A;
+}
+
+.search-box button {
+    background: none;
+    border: none;
+    color: #F5F0E1;
+    font-size: 1.1rem;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+
+
+/* Ana sayfanın hero bölümünün tasarım kodları*/
+#hero-showcase {
+    position: relative;
+    height: 650px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-align: center;
+    overflow: hidden;
+}
+
+.hero-backgrounda { /* hero bölümünün arka plan ölçüleri rekleri ve ayarlamaları*/
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.6) grayscale(0.1);
+    transform: scale(1.02);
+    transition: transform 0.5s ease-out;
+}
+
+#hero-showcase:hover .hero-bg {
+    transform: scale(1.0); /* hero bölümündeki görsele hover*/
+}
+
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+
+/* "hoşgeldin" metninin düzenlemesi*/
+.welcome-text {
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: #A3CC81;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.hero-heading {
+    font-family: 'Montserrat', sans-serif
+    font-size: 4.8rem;
+    font-weight: 700;
+    margin-bottom: 25px;
+    line-height: 1.1;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.6);
+    color: #FDFBF5;
+}
+
+/* öne çıkan koleksiyonlar bölümünün stil düzenlemeleri*/
+#featured-collections {
+    padding: 5rem 0;
+    background-color: #F5F0E1;
+    text-align: center;
+}
+/* öne çıkan koleksiyonlar bölümü başlığının düzenlemesi*/
+.section-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3.2rem;
+    font-weight: 700;
+    color: #2E4032;
+    margin-bottom: 15px;
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.1);
+}
+/* bölümün alt başlığının stil düzenlemesi*/
+.section-subtitle {
+    font-size: 1.3rem;
+    color: #666;
+    margin-bottom: 3rem;
+    font-weight: 300;
+}
+
+.collection-grid {
+    display: grid; /* kartları düzenli bir şekle aldırıyor*/
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 35px;
+    padding: 0 20px;
+}
+
+.collection-item {
+    position: relative; /* İçindeki overlay için referans */
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.collection-item:hover {
+    transform: translateY(-10px) scale(1.02); /* hoverda kartın hareketini belirliyor*/
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.collection-item a {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+}
+/* kartlara koyulan görselleri ortalama ve yerleştirme*/
+.collection-item img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease-out;
+}
+
+.collection-item:hover img {
+    transform: scale(1.05); /* hoverda görsel efekti*/
+}
+/* kartın üzerinde çıkan bilgilerin stilleri*/
+.item-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0));
+    color: #fff;
+    padding: 20px;
+    text-align: left;
+    transform: translateY(100%);
+    transition: transform 0.4s ease-out;
+}
+
+.collection-item:hover .item-overlay {
+    transform: translateY(0);
+}
+
+.item-overlay h4 { /* kartta çıkan bilgi başlığının düzenlenmesi*/
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.6rem;
+    margin-bottom: 8px;
+    color: #A3CC81;
+}
+
+.item-overlay p {
+    font-size: 0.95rem;
+    color: #ccc;
+}
+
+/*CTA (Call-to-Action) Bölümü Stilleri*/
+/* alttaki "Sanat Topluluğumuza Katılın bölümünün düzenlemeleri*/ 
+#cta-explore {
+    background: linear-gradient(135deg, #3C5A4B, #2E4032);
+    padding: 6rem 0;
+    text-align: center;
+    color: #FDFBF5;
+}
+
+.cta-content {
+    max-width: 800px;
+    margin: auto;
+}
+
+/* CTA başlık düzenlemeleri*/
+.cta-content h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+    color: #A3CC81;
+}
+
+.cta-content p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+
+
+
+
+
+/* Footer stil düzenlemeleri */
+footer {
+    background-color: #2E4032;
+    color: #FDFBF5;
+    padding: 3rem 0;
+    border-top: 3px solid #8BC34A;
+    font-size: 0.95rem;
+}
+
+.footer-content {
+    display: grid; /* footer bölümlerini sıralı dizer*/
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+    margin-bottom: 40px;
+}
+/* her bir footer bölüm başlığı stili */
+.footer-section h4 {
+    font-family: 'Montserrat', sans-serif;
+    color: #A3CC81; 
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgba(163, 204, 129, 0.5); 
+    padding-bottom: 10px;
+}
+
+.footer-section p {
+    margin-bottom: 10px;
+    line-height: 1.8;
+}
+/* footer bölümlerinin listelerinin düzenlemeleri*/
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 8px;
+}
+
+.footer-section ul li a {
+    color: #FDFBF5; 
+    font-weight: 300;
+}
+
+.footer-section ul li a:hover {
+    color: #A3CC81; 
+    text-decoration: underline;
+}
+/* sosyal medya linklerinin stil düzenlemeleri*/
+.social-links a {
+    display: inline-block;
+    color: #FDFBF5;
+    font-size: 1.2rem;
+    margin-right: 15px;
+    border: 1px solid #FDFBF5;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.social-links a:hover {
+    background-color: #A3CC81;
+    color: #2E4032;
+    border-color: #A3CC81;
+}
+/* footer alt kısmı (Telif Hakkı) stilleri */
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid #5A7E68; 
+    padding-top: 25px;
+    margin-top: 25px;
+    color: #A3CC81; 
+}
+
+
+/*Eserler Sayfası Stilleri*/
+/* Sayfa başlığ ve eserlerin galeri düzeni*/
+#eserler-sayfasi-hero {
+    background-color: #5A7E68; 
+    color: #FDFBF5;
+    text-align: center;
+    padding: 80px 0;
+    margin-bottom: 3rem;
+}
+/* başlık ve başlık düzenlemeleri*/
+#eserler-sayfasi-hero .page-heading {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #A3CC81;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* eserlerde galeri bölümü düzenlemeleri*/
+
+#all-artworks {
+    padding: 3rem 0 5rem 0;
+    background-color: #FDFBF5; 
+}
+
+.artwork-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 35px;
+    margin-bottom: 40px;
+}
+
+/* Her bir eser kartının genel görünümü */
+.galeri-item {
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.galeri-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+/* kutudaki metin düzenlemesi*/
+.galeri-item a {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+}
+/* kutuya görselin tam oturması ve ayarlanması*/
+.galeri-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease-out;
+}
+
+.galeri-item:hover img {
+    transform: scale(1.03);
+}
+/* Eser adının ve sanatçının bilgisi */
+.galeri-info {
+    padding: 20px 15px;
+    text-align: center;
+    background-color: #fff;
+}
+
+.galeri-info h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.4rem;
+    margin-bottom: 8px;
+    color: #3C5A4B;
+    font-weight: 600;
+}
+
+.galeri-info p {
+    font-size: 0.95rem;
+    color: #666;
+    font-weight: 400;
+}
+/*Eserler sayfası için responsive ayarları*/
+@media (max-width: 768px) {
+    #eserler-sayfasi-hero .page-heading {
+        font-size: 3rem;
+    }
+    #eserler-sayfasi-hero .page-intro {
+        font-size: 1.1rem;
+    }
+    .eserler-galeri-grid {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 25px;
+    }
+    .galeri-info h4 { 
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    #eserler-sayfasi-hero .page-heading { 
+        font-size: 2.5rem;
+    }
+    .eserler-galeri-grid {
+        grid-template-columns: 1fr;
+        padding: 0 10px;
+    }
+    .galeri-item img {
+        height: 200px;
+    }
+}
+
+
+/*Sanatçılar Sayfası Stilleri*/
+/* Sayfa başlığı ve sanatçı kartlarının düzenlemeleri*/
+#sanatci-hero {
+    background-color: #5A7E68;
+    color: #FDFBF5;
+    text-align: center;
+    padding: 80px 0;
+    margin-bottom: 3rem;
+}
+/* sayfa başlığının metin düzenlemeleri*/
+#sanatci-hero .page-heading {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #A3CC81;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+}
+/* sayfa başlığında bulunan metinlerin orantılanması*/
+#sanatci-hero .page-intro {
+    font-size: 1.3rem;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+/* sanatçılar sayfasına bulunan kartlar bölümünün arka plan rengi ve boyutları*/
+#sanatci-gallery {
+    padding: 3rem 0 5rem 0;
+    background-color: #FDFBF5;
+}
+
+.sanatci-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 35px;
+    margin-bottom: 40px;
+}
+/* tüm sanatçı kartlarının düzenlemeri*/
+.sanatci-item {
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.santci-item:hover { /* kart üzerine gelince görselin büyüme efekti*/
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+.sanatci-item a {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+}
+
+.sanatci-item img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease-out;
+}
+
+.sanatci-item:hover img {
+    transform: scale(1.03);
+}
+/* kart üzerinde sanatçı hakkında bilgi bölümü hakkında düzenlemeler*/
+.sanatci-info {
+    padding: 20px 15px;
+    text-align: center;
+    background-color: #fff;
+}
+
+.sanatci-info h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.4rem;
+    margin-bottom: 8px;
+    color: #3C5A4B;
+    font-weight: 600;
+}
+
+.sanatci-info p {
+    font-size: 0.95rem;
+    color: #666;
+    font-weight: 400;
+}
+/* resposive görünüm için stil ayarları*/
+@media (max-width: 768px) {
+    #sanatci-hero .page-heading {
+        font-size: 3rem;
+    }
+    #sanatci-hero .page-intro {
+        font-size: 1.1rem;
+    }
+    .sanatci-grid {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 25px;
+    }
+    .sanatci-info h4 {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    #sanatci-hero .page-heading {
+        font-size: 2.5rem;
+    }
+    .sanatci-grid {
+        grid-template-columns: 1fr;
+        padding: 0 10px;
+    }
+    .sanatci-item img {
+        height: 200px;
+    }
+}
+
+/*Sanat Akımları Sayfası Stilleri*/
+/* Sayfa başlığı ve sanat akımları kartlarının düzenlemeleri*/
+#akımlar-hero {
+    background-color: #5A7E68;
+    color: #FDFBF5;
+    text-align: center;
+    padding: 80px 0;
+    margin-bottom: 3rem;
+}
+/* sayfa başlığında bulunan metinlerin düzenlemeleri*/
+#akımlar-hero .page-heading {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #A3CC81;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+#akımlar-hero .page-intro {
+    font-size: 1.3rem;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* saant akımları sayfasında bulunan kartlar bölümünün arka plan rengi ve boyutları*/
+#akımlar-gallery {
+    padding: 3rem 0 5rem 0;
+    background-color: #FDFBF5;
+}
+/* akımların bulunduğu kartların düzenli bir şekilde sıralanmasını sağlar*/ 
+.akımlar-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 35px;
+    margin-bottom: 40px;
+}
+/* tüm sanat akımları kartlarının düzenlemeri*/
+.akımlar-item {
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.akımlar-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+.akımlar-item a {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+}
+
+.akımlar-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease-out;
+}
+
+.akımlar-item:hover img {
+    transform: scale(1.03);
+}
+/* sanat akımları kartlarının üzerinde bulunan bilgilerin stil düzenlemeleri*/
+.akımlar-info {
+    padding: 20px 15px;
+    text-align: center;
+    background-color: #fff;
+}
+
+.akımlar-info h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.4rem;
+    margin-bottom: 8px;
+    color: #3C5A4B;
+    font-weight: 600;
+}
+
+.akımlar-info p {
+    font-size: 0.95rem;
+    color: #666;
+    font-weight: 400;
+}
+/* responsive görünüm için stil düzenlemeleri*/
+@media (max-width: 768px) {
+    #akımlar-hero .page-heading {
+        font-size: 3rem;
+    }
+    #akımlar-hero .page-intro {
+        font-size: 1.1rem;
+    }
+    .akımlar-grid {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 25px;
+    }
+    .akımlar-info h4 {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    #akımlar-hero .page-heading {
+        font-size: 2.5rem;
+    }
+    .akımlar-grid {
+        grid-template-columns: 1fr;
+        padding: 0 10px;
+    }
+    .akımlar-item img {
+        height: 200px;
+    }
+}
+
+/* Kimlik Doğrulama (Giriş/Kayıt) Sayfası Stilleri */
+/* Sayfa konteyneri ve genel düzenlemeler */
+.auth-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 200px);
+    padding: 3rem 0;
+    background-color: #F5F0E1;
+}
+
+/* Giriş/Kayıt formu ana konteyneri */
+.auth-container {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 450px;
+    text-align: center;
+}
+
+/* Sayfa başlığı (Giriş Yap / Kayıt Ol) */
+.auth-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5rem;
+    color: #2E4032;
+    margin-bottom: 30px;
+    font-weight: 700;
+}
+.auth-form .form-group {
+    margin-bottom: 25px;
+    text-align: left;
+}
+.auth-form label {
+    display: block;
+    font-size: 1.1rem;
+    color: #333333;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+/* Giriş formu input alanlarının stilleri */
+.auth-form input[type="email"],
+.auth-form input[type="password"],
+.auth-form input[type="text"] {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    color: #333333;
+    background-color: #fcfcfc;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Input alanlarına odaklanıldığında görünüm */
+.auth-form input[type="email"]:focus,
+.auth-form input[type="password"]:focus,
+.auth-form input[type="text"]:focus {
+    border-color: #8BC34A;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(139, 195, 74, 0.2);
+}
+
+/* Giriş/Kayıt butonunun stil düzenlemeleri */
+.auth-btn {
+    width: 100%;
+    padding: 14px 20px;
+    font-size: 1.15rem;
+    margin-top: 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    font-weight: 700;
+}
+
+/* Alt kısımda bulunan yönlendirme metinleri düzenlemeleri*/
+.auth-link-text {
+    margin-top: 25px;
+    font-size: 1rem;
+    color: #555;
+}
+
+/* Yönlendirme linklerinin düzenlemeleri */
+.auth-link-text a {
+    color: #3C5A4B;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+.auth-link-text a:hover {
+    color: #8BC34A;
+}
+
+/* Responsive görünüm için stil düzenlemeleri*/
+@media (max-width: 500px) {
+    .auth-container {
+        padding: 30px 20px;
+        margin: 0 15px;
+    }
+    .auth-title {
+        font-size: 2rem;
+    }
+    .auth-form label {
+        font-size: 1rem;
+    }
+    .auth-form input {
+        font-size: 0.95rem;
+    }
+    .auth-btn {
+        font-size: 1rem;
+        padding: 12px 15px;
+    }
+}
+
+/* Eser Detay Sayfası Stilleri */
+/* Sayfa üst hero bölümü */
+#artwork-detail-hero {
+    background-color: #3C5A4B;
+    color: #FDFBF5;
+    text-align: center;
+    padding: 80px 0;
+    margin-bottom: 3rem;
+}
+
+/* Eser başlığının stil düzenlemeleri */
+#artwork-detail-hero .artwork-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 4.5rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #A3CC81;
+    text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.4);
+    line-height: 1.1;
+}
+#artwork-detail-hero .artwork-meta {
+    font-size: 1.4rem;
+    color: #F5F0E1;
+    font-weight: 300;
+}
+
+
+#artwork-detail-hero .artwork-meta a {
+    color: #A3CC81;
+    text-decoration: underline;
+}
+#artwork-detail-hero .artwork-meta a:hover {
+    color: #8BC34A;
+}
+
+/* Eser içerik bölümünün düzenlemeleri */
+#artwork-content {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding-bottom: 5rem;
+}
+
+
+.artwork-main-image {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Ana eser görselinin stil düzenlemeleri */
+.artwork-main-image img {
+    max-width: 90%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    transition: transform 0.4s ease-out;
+}
+.artwork-main-image img:hover {
+    transform: scale(1.01);
+}
+
+/*sayfa başlığı düzenleme*/
+.artwork-description h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.8rem;
+    color: #2E4032;
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+/* Eser açıklama metinlerinin düzenlemesi*/
+.artwork-description p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #444;
+    margin-bottom: 20px;
+}
+
+/* Yorumlar Bölümü Stilleri */
+/* Yorumlar bölümü ana konteyneri */
+#comments-section {
+    margin-top: 5rem;
+    padding-top: 3rem;
+    border-top: 1px solid #e0e0e0;
+}
+
+/* Yorumlar bölümü başlığı */
+#comments-section h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5rem;
+    color: #2E4032;
+    margin-bottom: 30px;
+    text-align: center;
+}
+.comments-list {
+    margin-bottom: 40px;
+}
+.comment-item {
+    background-color: #fff;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 25px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.comment-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    border-bottom: 1px dashed #e0e0e0;
+    padding-bottom: 10px;
+}
+
+.comment-author {
+    font-weight: 600;
+    color: #3C5A4B;
+    font-size: 1.05rem;
+}
+.comment-author i {
+    margin-right: 8px;
+    color: #8BC34A;
+}
+.comment-date {
+    font-size: 0.9rem;
+    color: #777;
+}
+
+/* Yorum metni stil ayarları */
+.comment-text {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #555;
+}
+
+/*yorum ekleme bölümü*/
+.comment-form-container {
+    background-color: #F5F0E1;
+    padding: 35px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+.comment-form-container h3 {
+    font-size: 2rem;
+    color: #2E4032;
+    margin-bottom: 30px;
+    text-align: center;
+}
+.comment-form .form-group {
+    margin-bottom: 20px;
+}
+.comment-form label {
+    display: block;
+    font-size: 1.05rem;
+    color: #333;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.comment-form input[type="text"],
+.comment-form input[type="email"],
+.comment-form textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    color: #333;
+    background-color: #fff;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.comment-form textarea {
+    resize: vertical;
+}
+
+
+.comment-form input:focus,
+.comment-form textarea:focus {
+    border-color: #8BC34A;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(139, 195, 74, 0.2);
+}
+
+/* Yorum gönder butonu stil düzenlemeleri */
+.comment-form .btn-primary {
+    display: block;
+    width: 100%;
+    padding: 14px 20px;
+    font-size: 1.15rem;
+    margin-top: 25px;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+}
+
+/*responsive görünüm için stil ayarları*/
+@media (max-width: 992px) {
+    #artwork-detail-hero .artwork-title {
+        font-size: 3.5rem;
+    }
+    #artwork-detail-hero .artwork-meta {
+        font-size: 1.2rem;
+    }
+    .artwork-description h2, #comments-section h3, .comment-form-container h3 {
+        font-size: 2.2rem;
+    }
+}
+@media (max-width: 768px) {
+    #artwork-detail-hero .artwork-title {
+        font-size: 2.8rem;
+    }
+    #artwork-detail-hero .artwork-meta {
+        font-size: 1rem;
+    }
+    .artwork-main-image img {
+        max-width: 100%;
+    }
+    .artwork-description h2, #comments-section h3, .comment-form-container h3 {
+        font-size: 1.8rem;
+    }
+    .comment-item {
+        padding: 20px;
+    }
+    .comment-form-container {
+        padding: 25px;
+    }
+}
+@media (max-width: 480px) {
+    #artwork-detail-hero .artwork-title {
+        font-size: 2rem;
+    }
+    #artwork-detail-hero .artwork-meta {
+        font-size: 0.9rem;
+    }
+    .artwork-description h2, #comments-section h3, .comment-form-container h3 {
+        font-size: 1.5rem;
+    }
+    .comment-form label {
+        font-size: 0.95rem;
+    }
+    .comment-form input, .comment-form textarea, .comment-form .btn-primary {
+        font-size: 0.9rem;
+        padding: 10px 12px;
+    }
+}
+
+/* Sanatçı Detay Sayfası Stilleri */
+/* Sayfa üst hero bölümü */
+#artist-detail-hero {
+    background: linear-gradient(135deg, #3C5A4B 0%, #2E4032 100%);
+    color: #FDFBF5;
+    text-align: center;
+    padding: 80px 0;
+    margin-bottom: 3rem;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Hero bölümü stil ayarları */
+#artist-detail-hero .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* Sanatçı profil fotoğrafı stil düzenlemeleri */
+.artist-hero-image {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid #A3CC81;
+    margin-bottom: 25px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.4s ease-out;
+}
+
+
+.artist-hero-image:hover {
+    transform: scale(1.05) rotate(-3deg);
+}
+
+
+.artist-name {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 4.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #A3CC81;
+    text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.4);
+    line-height: 1.1;
+}
+
+
+.artist-lifespan {
+    font-size: 1.5rem;
+    color: #F5F0E1;
+    font-weight: 300;
+    margin-bottom: 20px;
+}
+
+/* Sanatçı tanıtım metni düzenlemeleri */
+.artist-intro {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto 30px auto;
+    line-height: 1.7;
+    color: #FDFBF5;
+}
+
+/* Biyografi Bölümü Stilleri */
+
+#artist-biography {
+    padding-bottom: 5rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+/* Biyografi içerik alanı */
+.biography-content {
+    flex: 2;
+    min-width: 60%;
+    padding-right: 40px;
+}
+
+/* Biyografi, öne çıkan eserler ve yorumlar başlıkları */
+.biography-content h2, #artist-featured-artworks h3, #artist-comments-section h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.8rem;
+    color: #2E4032;
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+/* Biyografi paragraf stil düzenlemeleri */
+.biography-content p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #444;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+/* Öne çıkan eserler yan paneli */
+.artist-featured-artworks {
+    flex: 1;
+    min-width: 300px;
+    padding-left: 40px;
+    border-left: 1px solid #e0e0e0; 
+}
+
+/* Öne çıkan eserler başlığı */
+.artist-featured-artworks h3 {
+    font-size: 2.2rem;
+    text-align: center;
+    border-bottom: none; 
+}
+
+/* Mini eser kartları grid düzeni */
+.artwork-grid-mini {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+/*kartlardaki görellerin stil düzenlemeleri*/
+.artwork-item-mini {
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+}
+
+.artwork-item-mini:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+.artwork-item-mini a {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+}
+.artwork-item-mini img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    display: block;
+    border-bottom: 1px solid #eee;
+    transition: transform 0.4s ease-out;
+}
+
+/* Mini kart görsellerine hover yapıldığında zoom */
+.artwork-item-mini:hover img {
+    transform: scale(1.03);
+}
+
+/* Mini kart başlık stil düzenlemeleri */
+.artwork-item-mini h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    margin: 15px 10px;
+    color: #3C5A4B;
+    font-weight: 600;
+}
+
+/* Sanatçı yorumlar bölümü ana konteyneri */
+#artist-comments-section {
+    margin-top: 5rem;
+    padding-top: 3rem;
+    border-top: 1px solid #e0e0e0;
+    width: 100%; 
+}
+
+/* Sanatçı yorumlar başlığı */
+#artist-comments-section h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5rem;
+    color: #2E4032;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* Responsive görünüm için stil düzenlemeleri */
+
+@media (max-width: 992px) {
+    #artist-detail-hero .artist-name {
+        font-size: 3.5rem;
+    }
+    #artist-detail-hero .artist-lifespan {
+        font-size: 1.2rem;
+    }
+    #artist-biography {
+        flex-direction: column;
+    }
+    .biography-content {
+        padding-right: 0;
+        margin-bottom: 50px;
+    }
+    .artist-featured-artworks {
+        padding-left: 0;
+        border-left: none;
+        border-top: 1px solid #e0e0e0;
+        padding-top: 30px;
+    }
+    .biography-content h2, #artist-featured-artworks h3, #artist-comments-section h3 {
+        font-size: 2.2rem;
+    }
+    .artwork-grid-mini {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    #artist-detail-hero .artist-name {
+        font-size: 2.8rem;
+    }
+    #artist-detail-hero .artist-lifespan {
+        font-size: 1rem;
+    }
+    .artist-hero-image {
+        width: 140px;
+        height: 140px;
+    }
+    .biography-content h2, #artist-featured-artworks h3, #artist-comments-section h3 {
+        font-size: 1.8rem;
+    }
+    .biography-content p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    #artist-detail-hero .artist-name {
+        font-size: 2rem;
+    }
+    .artist-hero-image {
+        width: 120px;
+        height: 120px;
+    }
+    .biography-content h2, #artist-featured-artworks h3, #artist-comments-section h3 {
+        font-size: 1.5rem;
+    }
+    .artwork-grid-mini {
+        grid-template-columns: 1fr;
+    }
+    .artwork-item-mini img {
+        height: 180px;
+    }
+    .artwork-item-mini h4 {
+        font-size: 1rem;
+    }
+}
+
+/* Sanat Akımı Detay Sayfası Stilleri */
+/* Sayfa üst hero bölümü */
+#movement-detail-hero {
+    background: linear-gradient(135deg, #3C5A4B 0%, #2E4032 100%);
+    color: #FDFBF5;
+    text-align: center;
+    padding: 80px 0;
+    margin-bottom: 3rem;
+    position: relative;
+    overflow: hidden;
+}
+
+
+#movement-detail-hero .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* Sanat akımı temsili görseli */
+.movement-hero-image {
+    width: 250px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 5px solid #A3CC81;
+    margin-bottom: 25px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.4s ease-out;
+}
+
+
+.movement-hero-image:hover {
+    transform: scale(1.05);
+}
+
+/* Sanat akımı başlığı stil düzenlemeleri */
+.movement-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 4.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #A3CC81;
+    text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.4);
+    line-height: 1.1;
+}
+
+/* Sanat akımı dönemi stil düzenlemeleri */
+.movement-period {
+    font-size: 1.5rem;
+    color: #F5F0E1;
+    font-weight: 300;
+    margin-bottom: 20px;
+}
+
+/* Sanat akımı kutusunda kısa bilgi metin düzenlemesi*/
+.movement-intro {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto 30px auto;
+    line-height: 1.7;
+    color: #FDFBF5;
+}
+
+
+#movement-content-section {
+    padding-bottom: 5rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+
+.movement-main-info {
+    flex: 2;
+    min-width: 60%;
+    padding-right: 40px;
+}
+
+/* Akım bilgileri, öne çıkan eserler ve yorumlar başlıkları */
+.movement-main-info h2, #movement-featured-artworks h3, #movement-comments-section h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.8rem;
+    color: #2E4032;
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+
+.movement-main-info p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #444;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+
+.movement-featured-artworks {
+    flex: 1; 
+    min-width: 300px;
+    padding-left: 40px;
+    border-left: 1px solid #e0e0e0;
+}
+
+/* Öne çıkan eserler başlığı stil */
+.movement-featured-artworks h3 {
+    font-size: 2.2rem;
+    text-align: center;
+    border-bottom: none;
+}
+
+/* Mini eser kartlarında ek bilgi metni düzenlemeri*/
+.artwork-item-mini p {
+    font-size: 0.85rem;
+    color: #777;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+/* Akım yorumlar bölümü ana konteyneri */
+#movement-comments-section {
+    margin-top: 5rem;
+    padding-top: 3rem;
+    border-top: 1px solid #e0e0e0;
+    width: 100%;
+}
+
+/* Akım yorumlar başlığı */
+#movement-comments-section h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5rem;
+    color: #2E4032;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* Responsive görünüm için stil düzenlemeleri (tablet) */
+@media (max-width: 992px) {
+    #movement-detail-hero .movement-title {
+        font-size: 3.5rem;
+    }
+    #movement-detail-hero .movement-period {
+        font-size: 1.2rem;
+    }
+    #movement-content-section {
+        flex-direction: column;
+    }
+    .movement-main-info {
+        padding-right: 0;
+        margin-bottom: 50px;
+    }
+    .movement-featured-artworks {
+        padding-left: 0;
+        border-left: none;
+        border-top: 1px solid #e0e0e0;
+        padding-top: 30px;
+    }
+    .movement-main-info h2, #movement-featured-artworks h3, #movement-comments-section h3 {
+        font-size: 2.2rem;
+    }
+    .artwork-grid-mini {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    }
+}
+
+/* Responsive görünüm için stil düzenlemeleri */
+
+@media (max-width: 768px) {
+    #movement-detail-hero .movement-title {
+        font-size: 2.8rem;
+    }
+    #movement-detail-hero .movement-period {
+        font-size: 1rem;
+    }
+    .movement-hero-image {
+        width: 200px;
+        height: 120px;
+    }
+    .movement-main-info h2, #movement-featured-artworks h3, #movement-comments-section h3 {
+        font-size: 1.8rem;
+    }
+    .movement-main-info p {
+        font-size: 1rem;
+    }
+}
+
+/* Responsive görünüm için stil düzenlemeleri */
+@media (max-width: 480px) {
+    #movement-detail-hero .movement-title {
+        font-size: 2rem;
+    }
+    .movement-hero-image {
+        width: 180px;
+        height: 100px;
+    }
+    .movement-main-info h2, #movement-featured-artworks h3, #movement-comments-section h3 {
+        font-size: 1.5rem;
+    }
+    .artwork-grid-mini {
+        grid-template-columns: 1fr;
+    }
+    .artwork-item-mini img {
+        height: 180px;
+    }
+    .artwork-item-mini h4 {
+        font-size: 1rem;
+    }
+}
